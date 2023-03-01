@@ -8,22 +8,25 @@
 import UIKit
 
 class DetailView: UIViewController {
-
+    var prayService : PrayTimeService?
+    var prayViewModel : PrayTimeViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        prayService?.callAPI(completion: { result in
+            switch result {
+            case .success(let city):
+                DispatchQueue.main.async {
+                    self.prayViewModel = PrayTimeViewModel(city: city)
+                    print(self.prayViewModel.oglen)
+                    print(city.date)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
+      
+        
+       
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
 }

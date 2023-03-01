@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+struct PrayTimeViewModel {
+    var city : PrayCity
+    
+    var name : String {
+        return city.city
+    }
+    var sabah : String {
+        return city.today.sabah
+    }
+    var oglen : String {
+        return city.today.oglen
+    }
+    
+}

@@ -8,44 +8,97 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Prayer_Time_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginView" customModule="Prayer_Time_Reminder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to PrayerReminder" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjT-A0-7NB">
-                                <rect key="frame" x="50" y="153" width="293" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PrayerReminder" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjT-A0-7NB">
+                                <rect key="frame" x="50" y="153" width="293" height="88.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="network" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sBy-v8-PyS">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="network" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sBy-v8-PyS">
                                 <rect key="frame" x="152" y="60" width="89" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86.329999999999998" id="AnW-XR-cQ3"/>
+                                    <constraint firstAttribute="width" constant="89" id="xfb-Ub-F5I"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please select your current city." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9Z-k2-avn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select your current city." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9Z-k2-avn">
                                 <rect key="frame" x="80" y="370" width="233" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YVk-t0-TPg">
-                                <rect key="frame" x="48" y="409" width="297" height="147"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YVk-t0-TPg">
+                                <rect key="frame" x="16" y="409" width="361" height="216"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfv-Jh-MQN">
+                                <rect key="frame" x="110" y="633" width="173" height="46"/>
+                                <color key="backgroundColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save and Go!">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="26"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y5M-HP-0ZM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Dfv-Jh-MQN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="0ge-zd-TJR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YVk-t0-TPg" secondAttribute="trailing" constant="16" id="1gU-3l-ZKf"/>
+                            <constraint firstItem="YjT-A0-7NB" firstAttribute="top" secondItem="sBy-v8-PyS" secondAttribute="bottom" constant="7.6699999999999999" id="5j5-e1-s85"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sBy-v8-PyS" secondAttribute="trailing" constant="152" id="Ag0-00-O3F"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m9Z-k2-avn" secondAttribute="trailing" constant="80" id="DN4-gd-7UJ"/>
+                            <constraint firstItem="YjT-A0-7NB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="EEv-jX-unP"/>
+                            <constraint firstItem="sBy-v8-PyS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="152" id="HKH-UY-aBF"/>
+                            <constraint firstItem="Dfv-Jh-MQN" firstAttribute="top" secondItem="YVk-t0-TPg" secondAttribute="bottom" constant="8" symbolic="YES" id="OO1-pX-O4X"/>
+                            <constraint firstItem="YVk-t0-TPg" firstAttribute="top" secondItem="m9Z-k2-avn" secondAttribute="bottom" constant="18" id="PJA-SH-DWS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YVk-t0-TPg" secondAttribute="trailing" constant="16" id="QXw-kq-t3n"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dfv-Jh-MQN" secondAttribute="trailing" constant="110" id="Uqq-RY-QvQ"/>
+                            <constraint firstItem="sBy-v8-PyS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Z8n-9M-XJk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sBy-v8-PyS" secondAttribute="trailing" constant="152" id="cYX-hm-66P"/>
+                            <constraint firstItem="sBy-v8-PyS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hOc-E2-3xr"/>
+                            <constraint firstItem="sBy-v8-PyS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="152" id="i6l-J5-ePZ"/>
+                            <constraint firstItem="m9Z-k2-avn" firstAttribute="top" secondItem="YjT-A0-7NB" secondAttribute="bottom" constant="128.66999999999999" id="lbW-Sf-3Dd"/>
+                            <constraint firstItem="YVk-t0-TPg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="n05-ou-OeP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YjT-A0-7NB" secondAttribute="trailing" constant="50" id="oAa-pU-h9s"/>
+                            <constraint firstItem="YVk-t0-TPg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ocy-EO-wng"/>
+                            <constraint firstItem="m9Z-k2-avn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="ykF-fj-CAB"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityPicker" destination="YVk-t0-TPg" id="0zP-Oy-rWf"/>
+                        <segue destination="UUc-9V-TlO" kind="presentation" identifier="toDetail" modalPresentationStyle="fullScreen" id="c5D-OM-dtk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
+        </scene>
+        <!--Detail View-->
+        <scene sceneID="8Cu-Sa-Ity">
+            <objects>
+                <viewController id="UUc-9V-TlO" customClass="DetailView" customModule="Prayer_Time_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9VE-Va-mJy">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bhX-J3-9VB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ThE-am-VKc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fMD-NR-Q3B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1009.9236641221373" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

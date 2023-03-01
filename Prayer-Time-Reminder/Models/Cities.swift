@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct InitialData : Codable {
+    let status : String
+    let data : [Province]
+}
+
+struct Province : Codable {
+    let id : Int
+    let name : String
+}
