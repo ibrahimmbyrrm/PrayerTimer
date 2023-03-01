@@ -7,13 +7,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginView: UIViewController {
 
+    @IBOutlet weak var cityPicker: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func saveButtonClicked(_ sender: Any) {
+    }
+    
 
 }
+
 
