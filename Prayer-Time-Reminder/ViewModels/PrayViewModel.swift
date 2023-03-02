@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+//Selected city's pray times are here.
 struct PrayTimeViewModel {
     var city : PrayCity
 

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//JSON Parsing Models
 struct PrayCity : Codable {
     let city : String
     let date : String

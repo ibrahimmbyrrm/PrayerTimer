@@ -8,6 +8,7 @@
 import UIKit
 
 class LoginView: UIViewController {
+    //Async functions will occur a crash.I want to use didset.
     var viewModel : CityListViewModel? = nil {
         didSet{
             DispatchQueue.main.async {
@@ -30,6 +31,7 @@ class LoginView: UIViewController {
         fetchData()
         
     }
+    //Check the UserDefaults and if it is not nil, user is not going to select a city again.
     override func viewDidAppear(_ animated: Bool) {
         if userSelected != nil {
             self.selectedCity = userSelected
@@ -37,6 +39,7 @@ class LoginView: UIViewController {
             performSegue(withIdentifier: "toDetail", sender: nil)
         }
     }
+    //Calling API to initialize CityListViewModel
     func fetchData() {
         service.callAPI { result in
             switch result {
@@ -51,7 +54,7 @@ class LoginView: UIViewController {
     }
     
     
-    
+    //Set new userDefault value and segue.
     @IBAction func saveButtonClicked(_ sender: Any) {
         if let selected = selectedCity {
             viewModel?.saveCity(city: selected)
@@ -61,13 +64,15 @@ class LoginView: UIViewController {
             performSegue(withIdentifier: "toDetail", sender: nil)
         }
     }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         viewModel?.prepareSegue(for: segue, selection: selectedCity!)
-        print(userSelected)
     }
     
 
 }
+//Setup pickerView according to CityListViewModel
 extension LoginView : UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

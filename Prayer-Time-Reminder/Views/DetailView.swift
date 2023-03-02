@@ -45,13 +45,13 @@ class DetailView: UIViewController {
             }
         })
     }
-    
+    //If user want to see other city's times.This button send user to login screen.
     @IBAction func changeTheCity(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "selected")
         performSegue(withIdentifier: "toLogin", sender: nil)
     }
     
-    
+    //Show the current hour and minute to user.
     private func getCurrentTime() {
            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:#selector(self.currentTime) , userInfo: nil, repeats: true)
        }

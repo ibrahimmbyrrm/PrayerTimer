@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//JSON Parsing Models.
 struct InitialData : Codable {
     let status : String
     let data : [Province]

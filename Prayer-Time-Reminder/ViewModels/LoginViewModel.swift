@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//Some functions for city list.
 struct CityListViewModel {
     let cities : [Province]
     
@@ -32,6 +33,7 @@ struct CityListViewModel {
         }
     }
 }
+//When user selected a city.This viewmodel will be initialized.
 struct CityViewModel {
     let city : Province
     
