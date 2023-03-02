@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct CityListViewModel {
     let cities : [Province]
@@ -23,6 +24,13 @@ struct CityListViewModel {
     func saveCity(city : String) {
         UserDefaults.standard.set(city, forKey: "selected")
     }
+    func prepareSegue(for segue : UIStoryboardSegue, selection : String) {
+        if segue.identifier == "toDetail" {
+            let destVC = segue.destination as! DetailView
+            destVC.prayService = PrayTimeService(city: selection)
+            print(selection)
+        }
+    }
 }
 struct CityViewModel {
     let city : Province
@@ -30,4 +38,6 @@ struct CityViewModel {
     var name : String {
         return city.name
     }
+    
+    
 }

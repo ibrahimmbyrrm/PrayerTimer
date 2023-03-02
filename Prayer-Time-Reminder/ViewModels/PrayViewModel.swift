@@ -6,18 +6,27 @@
 //
 
 import Foundation
+import UIKit
 
 struct PrayTimeViewModel {
     var city : PrayCity
-    
-    var name : String {
-        return city.city
+
+    func updateTodayLabels(name : UILabel,sabah : UILabel, oglen : UILabel, ikindi : UILabel, aksam : UILabel, yatsi : UILabel) {
+        sabah.text = city.today.sabah
+        oglen.text = city.today.oglen
+        ikindi.text = city.today.ikindi
+        aksam.text = city.today.aksam
+        yatsi.text = city.today.yatsi
+        name.text = city.city
+        
     }
-    var sabah : String {
-        return city.today.sabah
+    func updateTomorrowLabels(sabah : UILabel, oglen : UILabel, ikindi : UILabel, aksam : UILabel, yatsi : UILabel) {
+        sabah.text = city.tomorrow.sabah
+        oglen.text = city.tomorrow.oglen
+        ikindi.text = city.tomorrow.ikindi
+        aksam.text = city.tomorrow.aksam
+        yatsi.text = city.tomorrow.yatsi
     }
-    var oglen : String {
-        return city.today.oglen
-    }
+   
     
 }

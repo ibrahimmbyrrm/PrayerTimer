@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum APIError : Error {
+    case FetchingError
+}
+
 struct PrayTimeService {
     var city = UserDefaults.standard.value(forKey: "selected") as? String
     
@@ -20,7 +24,7 @@ struct PrayTimeService {
             }
             let jsonData = try? JSONDecoder().decode(PrayCity.self, from: data)
             guard let jsonData = jsonData else {
-                completion(.failure(error!))
+                completion(.failure(APIError.FetchingError))
                 return
             }
             completion(.success(jsonData))

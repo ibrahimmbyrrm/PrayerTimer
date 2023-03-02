@@ -15,8 +15,13 @@ class LoginView: UIViewController {
             }
         }
     }
+    var userSelected = UserDefaults.standard.value(forKey: "selected") as? String
     var selectedCity : String?
     var service = CityService()
+    
+    
+    
+    
     @IBOutlet weak var cityPicker: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +30,13 @@ class LoginView: UIViewController {
         fetchData()
         
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if userSelected != nil {
+            self.selectedCity = userSelected
+            DetailView().prayService = PrayTimeService(city: userSelected)
+            performSegue(withIdentifier: "toDetail", sender: nil)
+        }
+    }
     func fetchData() {
         service.callAPI { result in
             switch result {
@@ -40,19 +51,19 @@ class LoginView: UIViewController {
     }
     
     
+    
     @IBAction func saveButtonClicked(_ sender: Any) {
         if let selected = selectedCity {
             viewModel?.saveCity(city: selected)
             performSegue(withIdentifier: "toDetail", sender: nil)
         }else {
-            print("you should select a city.")
+            self.selectedCity = userSelected
+            performSegue(withIdentifier: "toDetail", sender: nil)
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetail" {
-            let destVC = segue.destination as! DetailView
-            destVC.prayService = PrayTimeService(city: selectedCity!)
-        }
+        viewModel?.prepareSegue(for: segue, selection: selectedCity!)
+        print(userSelected)
     }
     
 
